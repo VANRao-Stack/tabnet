@@ -74,7 +74,7 @@ _run_notebook:
 .PHONY: _run_notebook
 
 doc: build ## Install dependencies
-	$(DOCKER_RUN) '. ./docs-scripts/rst_generator.sh'
+	$(DOCKER_RUN) 'cd ./docs-scripts && ./rst_generator.sh'
 	$(DOCKER_RUN) 'poetry run sphinx-build ./docs-scripts/source ./docs -b html'
 .PHONY: doc
 
