@@ -76,6 +76,7 @@ _run_notebook:
 doc: build ## Install dependencies
 	$(DOCKER_RUN) 'cd ./docs-scripts && ./rst_generator.sh'
 	$(DOCKER_RUN) 'poetry run sphinx-build ./docs-scripts/source ./docs -b html'
+	$(DOCKER_RUN) 'touch ./docs/.nojekyll'
 .PHONY: doc
 
 test-nb-census: ## run census income tests using notebooks
